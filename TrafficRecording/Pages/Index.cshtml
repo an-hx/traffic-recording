@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{ ViewData["Title"] = "HTTP TRAFFIC RECORDING"; }
+
+<div id="loading" class="pf-3"></div>
+<table class="table table-hover" id="http-log">
+    <thead class="thead-light">
+        <tr>
+            <td style="width: 250px;">Time</td>
+            <td style="width: 100px;">Method</td>
+            <td style="width: 25%;">Url</td>
+            <td>Body</td>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+@section Scripts{
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/traffic.js"></script>
+}
+
+@section Styles{ 
+<style>
+    .json-content {
+        max-height: 300px;
+        border: 2px solid #dedede;
+        padding: 4px;
+        font-size: 10px !important;
+    }
+    .hidden{
+        display: none;
+    }
+</style>
+}

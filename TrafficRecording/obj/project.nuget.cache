@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "wencPpEvoFkt7uRitZVrZz6+S5bZ5iK7gU1wpybn/HL4lxCZO2rfoGmm2Kc43D5BonwIQM5bwsGOXe9cXdZkiQ==",
+  "success": true,
+  "projectFilePath": "D:\\an-hx\\traffic-recording\\TrafficRecording\\TrafficRecording.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\AnHo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.14\\microsoft.netcore.app.host.win-x64.3.1.14.nupkg.sha512"
+  ],
+  "logs": []
+}
