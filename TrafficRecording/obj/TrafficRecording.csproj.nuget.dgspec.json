@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\an-hx\\traffic-recording\\TrafficRecording\\TrafficRecording.csproj": {}
+    "D:\\github.com\\an-hx\\traffic-recording\\TrafficRecording\\TrafficRecording.csproj": {}
   },
   "projects": {
-    "D:\\an-hx\\traffic-recording\\TrafficRecording\\TrafficRecording.csproj": {
+    "D:\\github.com\\an-hx\\traffic-recording\\TrafficRecording\\TrafficRecording.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\an-hx\\traffic-recording\\TrafficRecording\\TrafficRecording.csproj",
+        "projectUniqueName": "D:\\github.com\\an-hx\\traffic-recording\\TrafficRecording\\TrafficRecording.csproj",
         "projectName": "TrafficRecording",
-        "projectPath": "D:\\an-hx\\traffic-recording\\TrafficRecording\\TrafficRecording.csproj",
-        "packagesPath": "C:\\Users\\AnHo\\.nuget\\packages\\",
-        "outputPath": "D:\\an-hx\\traffic-recording\\TrafficRecording\\obj\\",
+        "projectPath": "D:\\github.com\\an-hx\\traffic-recording\\TrafficRecording\\TrafficRecording.csproj",
+        "packagesPath": "C:\\Users\\anho\\.nuget\\packages\\",
+        "outputPath": "D:\\github.com\\an-hx\\traffic-recording\\TrafficRecording\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\AnHo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\anho\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -43,6 +44,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.15, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

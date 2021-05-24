@@ -18,6 +18,7 @@ connection.on("ReceiveMessage", function (message) {
     var dateCol = $("<td/>").text((new Date()).toISOString());
     var methodCol = $("<td/>").text(message.method);
     var urlCol = $("<td/>").text(message.url);
+    var statusCol = $("<td/>").text(message.status);
     if (message.body.length) {
         var jsonContent = "<textarea class='json-content' id='json-content-" + count + "'>" + message.body + "</textarea>";
         jsonContent += "</br><a href='javascript:void(0)' id='btn-copy-" + count + "'>Copy</a>";
@@ -31,6 +32,7 @@ connection.on("ReceiveMessage", function (message) {
     row.append(methodCol);
     row.append(urlCol);
     row.append(bodyCol);
+    row.append(statusCol);
 
     $('#http-log tbody').prepend(row);
     setTimeout(function () {
