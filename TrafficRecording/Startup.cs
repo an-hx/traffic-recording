@@ -68,8 +68,8 @@ namespace TrafficRecording
                 }
 
                 var hubContext = context.RequestServices.GetService<IHubContext<TrafficHub>>();
-                
-                await next.Invoke();
+                var displayUrl = context.Request.GetDisplayUrl();
+
                 await hubContext.Clients.All.SendAsync("ReceiveMessage",
                     new
                     {
@@ -78,15 +78,17 @@ namespace TrafficRecording
                         Body = bodyString,
                         Status = context.Response.StatusCode
                     });
-                //if (context.Response.StatusCode != (int)HttpStatusCode.OK)
-                //{
-                //    context.Response.StatusCode = (int)HttpStatusCode.OK;
+                await next.Invoke();
 
-                //    //context.Response.Body = new MemoryStream();
-                //    //context.Response.Body.Seek(0, SeekOrigin.Begin);
-                //    //await context.Response.WriteAsync($"FAKE HTTP SUCCESS FROM HTTP DUMP");
+                if (displayUrl.Contains("/BasicAuth/SendRequest") || displayUrl.Contains("/Tab/SendRequest"))
+                {
+                }
+                else
+                {
+                    
+                }
 
-                //}
+                
             });
 
             app.UseRouting();
@@ -106,9 +108,23 @@ namespace TrafficRecording
             {
                 endpoints.MapRazorPages();
                 endpoints.MapHub<TrafficHub>("/trafficHub");
+
+                endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
+
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                    name: "NoAuth",
+                    pattern: "NoAuth/{action}/{id}",
+                    new { controller = "NoAuth", action = "Index"}
+                );
+
+                endpoints.MapControllerRoute(
+                    name: "tab",
+                    pattern: "tab/{action}/{id?}"
+                );
+
+                endpoints.MapControllerRoute(
+                    name: "basicauth",
+                    pattern: "basicauth/{action}/{id?}"
                 );
             });
 

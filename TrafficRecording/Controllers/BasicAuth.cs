@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TrafficRecording.Controllers
 {
-    public class Messages : Controller
+    public class BasicAuth : Controller
     {
         [Authorize]
         [HttpPost]

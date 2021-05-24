@@ -4,7 +4,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>D:\an-hx\traffic-recording\TrafficRecording\bin\Release\netcoreapp3.1\publish\</_PublishTargetUrl>
-    <History>True|2021-04-19T01:44:52.9731880Z;</History>
+    <_PublishTargetUrl>D:\github.com\an-hx\traffic-recording\TrafficRecording\bin\Release\netcoreapp3.1\publish\</_PublishTargetUrl>
+    <History>True|2021-05-24T15:54:24.3398994Z;True|2021-05-24T22:11:37.1371918+07:00;True|2021-05-24T21:54:08.7833125+07:00;True|2021-04-19T08:44:52.9731880+07:00;</History>
   </PropertyGroup>
 </Project>

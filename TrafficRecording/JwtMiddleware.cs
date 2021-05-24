@@ -36,9 +36,12 @@ namespace TrafficRecording
             try
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
-                if(token == "4affd365-52dd-404d-9b81-73ffe6ca768e" ||
-                    token == "6a1377b4-dc24-4288-9264-fc106c5543e3")
+
+                var basicTokenResult = CreateBasicToken(_appSettings.ClientId, _appSettings.Secret);
+                string basicToken = Convert.ToBase64String(basicTokenResult.Item2);
+
+                // basic sportcast token or tab
+                if (token == basicToken || token == "6a1377b4-dc24-4288-9264-fc106c5543e3")
                 {
                     // attach user to context on successful jwt validation
                     context.Items["User"] = new User() { Id = 123, FirstName = "Admin", LastName = "Test", Password = "abc123!", Username = "admin" };
@@ -51,6 +54,15 @@ namespace TrafficRecording
                 // do nothing if jwt validation fails
                 // user is not attached to context so request won't have access to secure routes
             }
+        }
+
+        public Tuple<bool, byte[]> CreateBasicToken(string clientId, string secret)
+        {
+            if (string.IsNullOrEmpty(clientId) || string.IsNullOrEmpty(secret))
+            {
+                return new Tuple<bool, byte[]>(false, null);
+            }
+            return new Tuple<bool, byte[]>(true, new UTF8Encoding().GetBytes($"{clientId}:{secret}"));
         }
     }
 }

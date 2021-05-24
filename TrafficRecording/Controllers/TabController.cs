@@ -14,5 +14,12 @@ namespace TrafficRecording.Controllers
         {
             return Ok("6a1377b4-dc24-4288-9264-fc106c5543e3");
         }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult SendRequest()
+        {
+            return Ok(true);
+        }
     }
 }
