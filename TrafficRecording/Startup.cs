@@ -70,6 +70,8 @@ namespace TrafficRecording
                 var hubContext = context.RequestServices.GetService<IHubContext<TrafficHub>>();
                 var displayUrl = context.Request.GetDisplayUrl();
 
+                
+                await next.Invoke();
                 await hubContext.Clients.All.SendAsync("ReceiveMessage",
                     new
                     {
@@ -78,8 +80,6 @@ namespace TrafficRecording
                         Body = bodyString,
                         Status = context.Response.StatusCode
                     });
-                await next.Invoke();
-
                 if (displayUrl.Contains("/BasicAuth/SendRequest") || displayUrl.Contains("/Tab/SendRequest"))
                 {
                 }
